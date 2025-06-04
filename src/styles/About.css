@@ -1,0 +1,129 @@
+.about-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xxl) 0;
+}
+
+/* Section container with animation */
+.about-section:not(.animate) {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.about-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 50px;
+}
+
+.about-text {
+  font-size: var(--fz-md);
+}
+
+.about-text p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Skills list styling */
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 200px));
+  gap: 0 10px;
+  margin-top: var(--spacing-lg);
+  overflow: hidden;
+  list-style: none;
+}
+
+.skills-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  font-family: var(--font-mono);
+  font-size: var(--fz-sm);
+}
+
+.skills-list li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-size: var(--fz-sm);
+  line-height: 18px;
+}
+
+/* Image styling */
+.about-image-wrapper {
+  position: relative;
+  max-width: 300px;
+}
+
+.about-image-container {
+  position: relative;
+  width: 100%;
+  border-radius: var(--border-radius);
+  background-color: var(--green);
+  transition: var(--transition);
+}
+
+.about-image-container::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--green);
+  border-radius: var(--border-radius);
+  top: 15px;
+  left: 15px;
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.about-image-container:hover {
+  background-color: transparent;
+}
+
+.about-image-container:hover::after {
+  top: 10px;
+  left: 10px;
+}
+
+.about-image {
+  width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  position: relative;
+  mix-blend-mode: multiply;
+  filter: grayscale(100%) contrast(1);
+  transition: var(--transition);
+}
+
+.about-image-container:hover .about-image {
+  filter: none;
+  mix-blend-mode: normal;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-image-wrapper {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,149 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--nav-height);
+  backdrop-filter: blur(10px);
+  background-color: rgba(10, 25, 47, 0.85);
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar.show {
+  transform: translateY(0);
+}
+
+.navbar nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 var(--spacing-lg);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  transition: var(--transition);
+  
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links ol {
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 var(--spacing-sm);
+}
+
+.nav-links li a {
+  color: var(--light-slate);
+  font-family: var(--font-mono);
+  font-size: var(--fz-sm);
+  padding: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.nav-links li a:hover {
+  color: var(--green);
+}
+
+.nav-number {
+  color: var(--green);
+  margin-right: 5px;
+}
+
+.resume-button {
+  margin-left: var(--spacing-lg);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.hamburger .line {
+  height: 2px;
+  width: 100%;
+  background-color: var(--green);
+  transition: var(--transition);
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+  }
+  
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--light-navy);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: var(--transition);
+    z-index: 10;
+  }
+  
+  .nav-links.active {
+    transform: translateX(0);
+  }
+  
+  .nav-links ol {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin: var(--spacing-md) 0;
+  }
+  
+  .resume-button {
+    margin: var(--spacing-xl) 0 0 0;
+  }
+}

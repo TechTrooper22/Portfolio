@@ -115,7 +115,7 @@ const Navbar = () => {
           </ol>
           <div className="resume-button">
             <a
-              href="../../Files\resume.pdf"
+              href="https://drive.google.com/drive/u/0/my-drive"
               className="btn"
               target="_blank"
               rel="noopener noreferrer"
